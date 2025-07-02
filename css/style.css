@@ -73,8 +73,6 @@ body {
 
 /* 🎞️ Carousel */
 .carousel-container {
-/* 🎞️ Carousel */
-.carousel-container {
   overflow: hidden; /* This hides any images outside the container's bounds */
   max-height: 450px;
   margin-bottom: 40px;
@@ -452,6 +450,14 @@ body {
     align-items: center; /* Center links in column view */
   }
 
+  .carousel-container {
+    max-height: 300px;
+  }
+
+  .carousel-image {
+    height: 300px;
+  }
+
   .testimonial-slider {
     flex-direction: column;
     align-items: center;
@@ -498,6 +504,15 @@ body {
   .nav-links {
     gap: 10px;
   }
+
+  .carousel-container {
+    max-height: 220px;
+  }
+
+  .carousel-image {
+    height: 220px;
+  }
+
   h2 {
     font-size: 28px !important; /* Ensure headings scale down */
   }
@@ -510,4 +525,4 @@ body {
     font-size: 22px;
     margin: 0 8px;
   }
-}
+  }
