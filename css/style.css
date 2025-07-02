@@ -88,17 +88,11 @@ body {
 }
 
 .carousel-image {
-  /*
-  The width of each image should be 100% of its parent's (the .carousel-container's) visible area.
-  By setting flex-shrink: 0, we prevent images from shrinking to fit the container,
-  ensuring they maintain their 100% width and line up side-by-side for the slide effect.
-  */
   width: 100%;
   flex-shrink: 0;
   height: 450px;
-  object-fit: cover; /* Ensures images cover the area without distortion */
-  /* Remove display: none; and display: block; from here.
-     All images should be part of the flex flow. */
+  object-fit: contain;
+  object-position: center center; /* ✅ this fixes top cropping */
 }
 
 /* 📱 Responsive Design for Carousel */
