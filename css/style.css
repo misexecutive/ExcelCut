@@ -7,8 +7,8 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #141414; /* Netflix dark */
-  color: #f5f5f5;
+  background-color: #F0F2F5; /* Light Gray Blue - inspired by modern UIs */
+  color: #333333; /* Darker text for contrast */
   line-height: 1.6;
 }
 
@@ -18,41 +18,66 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background-color: #000;
+  background-color: #FFFFFF; /* White Navbar */
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
 }
 
 .logo {
-  color: #e50914;
-  font-size: 24px;
+  color: #007BFF; /* Vibrant Blue */
+  font-size: 26px; /* Slightly larger */
   font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px; /* Increased gap for better spacing */
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: #fff;
+  color: #555555; /* Muted dark gray */
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Added transform for hover effect */
+  position: relative; /* For underline effect */
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #007BFF; /* Vibrant Blue underline */
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+  left: 0;
+  background: #007BFF; /* Vibrant Blue underline */
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
-  color: #e50914;
+  color: #007BFF; /* Vibrant Blue */
+  transform: translateY(-2px); /* Slight lift on hover */
 }
 
 /* 🎞️ Carousel */
 .carousel-container {
   overflow: hidden;
-  max-height: 400px;
-  margin-bottom: 30px;
+  max-height: 450px; /* Slightly increased height */
+  margin-bottom: 40px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* More prominent shadow */
 }
 
 .carousel {
@@ -63,7 +88,7 @@ body {
 
 .carousel-image {
   width: 100%;
-  height: 400px;
+  height: 450px;
   object-fit: cover;
   display: none;
 }
@@ -74,180 +99,405 @@ body {
 
 /* 👨‍🏫 About Me */
 .about {
-  padding: 40px;
-  background-color: #1e1e1e;
+  padding: 60px 40px; /* Increased padding */
+  background-color: #FFFFFF; /* White background */
   text-align: center;
+  border-radius: 8px;
+  margin: 30px auto;
+  max-width: 1000px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
 }
 
 .about h2 {
-  color: #e50914;
-  margin-bottom: 10px;
+  color: #007BFF; /* Vibrant Blue */
+  margin-bottom: 15px;
+  font-size: 32px; /* Larger heading */
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.about h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #007BFF;
+  border-radius: 2px;
 }
 
 /* 💬 Testimonials */
 .testimonials {
-  padding: 40px;
-  background-color: #181818;
+  padding: 60px 40px;
+  background-color: #E6EEF7; /* Light Blue background */
   text-align: center;
+  margin-top: 40px;
 }
 
 .testimonials h2 {
-  color: #e50914;
-  margin-bottom: 20px;
+  color: #0056B3; /* Darker Blue */
+  margin-bottom: 30px;
+  font-size: 32px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.testimonials h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #0056B3;
+  border-radius: 2px;
 }
 
 .testimonial-slider {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px; /* Increased gap */
   flex-wrap: wrap;
 }
 
 .testimonial-card {
-  background-color: #222;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 280px;
-  box-shadow: 0 0 10px #000;
+  background-color: #FFFFFF; /* White card */
+  padding: 25px;
+  border-radius: 12px; /* More rounded corners */
+  max-width: 320px; /* Slightly wider cards */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px); /* Lift on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .testimonial-card img {
-  width: 60px;
-  height: 60px;
+  width: 70px; /* Larger avatar */
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #007BFF; /* Blue border around avatar */
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #444444;
   margin-bottom: 10px;
+}
+
+.testimonial-card h4 {
+  color: #007BFF;
+  font-weight: 600;
 }
 
 /* 🧭 Roadmaps */
 .roadmaps {
-  padding: 40px;
-  background-color: #1b1b1b;
+  padding: 60px 40px;
+  background-color: #F0F2F5; /* Light Gray Blue background */
+  margin-top: 40px;
 }
 
 .roadmaps h2 {
   text-align: center;
-  color: #e50914;
-  margin-bottom: 20px;
+  color: #0056B3;
+  margin-bottom: 30px;
+  font-size: 32px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.roadmaps h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #0056B3;
+  border-radius: 2px;
 }
 
 .roadmap {
-  background-color: #222;
-  margin: 10px auto;
-  padding: 15px 20px;
-  max-width: 800px;
-  border-left: 5px solid #e50914;
-  border-radius: 5px;
+  background-color: #FFFFFF; /* White roadmap card */
+  margin: 20px auto; /* Increased margin */
+  padding: 20px 25px;
+  max-width: 850px; /* Wider roadmap cards */
+  border-left: 6px solid #007BFF; /* Vibrant Blue left border */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roadmap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.roadmap h3 {
+  color: #007BFF;
+  margin-bottom: 8px;
+}
+
+.roadmap p {
+  color: #555555;
 }
 
 /* 📚 Course Overview */
 .course-overview {
-  padding: 40px;
-  background-color: #1e1e1e;
+  padding: 60px 40px;
+  background-color: #FFFFFF; /* White background */
   text-align: center;
+  margin-top: 40px;
 }
 
 .course-overview h2 {
-  color: #e50914;
-  margin-bottom: 30px;
+  color: #007BFF;
+  margin-bottom: 40px; /* Increased margin */
+  font-size: 32px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.course-overview h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #007BFF;
+  border-radius: 2px;
 }
 
 .course-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px; /* Adjusted gap */
   justify-content: center;
 }
 
 .course-card {
-  background-color: #222;
-  width: 160px;
-  padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.3s;
-  box-shadow: 0 0 10px #000;
+  background-color: #F8F8F8; /* Very light gray for cards */
+  width: 180px; /* Slightly wider */
+  padding: 25px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #E0E0E0; /* Subtle border */
 }
 
 .course-card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
+  width: 70px; /* Larger icons */
+  height: 70px;
+  margin-bottom: 15px;
+  border-radius: 50%; /* Make icons circular */
+  background-color: #EBF5FF; /* Light blue background for icons */
+  padding: 10px;
+}
+
+.course-card h3 {
+  color: #0056B3;
+  margin-bottom: 8px;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #666666;
 }
 
 .course-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03) translateY(-5px); /* Lift and slightly scale */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  background-color: #FFFFFF; /* White on hover */
 }
 
 /* 🔻 Footer */
 .footer {
-  background-color: #000;
+  background-color: #2C3E50; /* Dark Blue Gray */
   text-align: center;
-  padding: 20px;
-  color: #ccc;
-  font-size: 14px;
-  margin-top: 40px;
+  padding: 25px; /* Increased padding */
+  color: #E0E0E0; /* Light gray text */
+  font-size: 15px;
+  margin-top: 50px; /* Increased margin */
 }
+
+/* 📬 Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap */
+  max-width: 550px; /* Slightly wider form */
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #FFFFFF; /* White form background */
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px; /* Increased padding */
+  border-radius: 8px; /* More rounded corners */
+  border: 1px solid #D0D0D0; /* Light gray border */
+  background-color: #F8F8F8; /* Very light gray input background */
+  color: #333;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #007BFF; /* Blue border on focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Subtle blue glow */
+}
+
+.contact-form button {
+  background-color: #007BFF; /* Vibrant Blue button */
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 1; /* Enabled state for attraction */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0056B3; /* Darker blue on hover */
+  transform: translateY(-2px);
+}
+
+.contact-form button:disabled { /* Styling for disabled state */
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* 🌐 Social Icons */
+.social-icons-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  margin: 0 12px; /* Slightly more space */
+  color: #007BFF; /* Vibrant Blue icons */
+  font-size: 26px; /* Larger icons */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.3); /* More pronounced scale */
+  color: #0056B3; /* Darker blue on hover */
+}
+
 
 /* 📱 Responsive Design */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
   .nav-links {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; /* Adjusted gap */
+    align-items: center; /* Center links in column view */
+  }
+
+  .carousel-container {
+    max-height: 300px;
   }
 
   .carousel-image {
-    height: 250px;
+    height: 300px;
   }
 
   .testimonial-slider {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    max-width: 90%; /* Wider on smaller screens */
   }
 
   .course-cards {
     flex-direction: column;
+    gap: 15px;
+  }
+
+  .course-card {
+    width: 80%; /* Wider on smaller screens */
+  }
+
+  .about, .testimonials, .roadmaps, .course-overview {
+    padding: 30px 20px;
+  }
+
+  .roadmap {
+    margin: 15px auto;
+  }
+
+  .contact-form {
+    max-width: 90%;
+    padding: 20px;
   }
 }
-/* 📬 Contact Form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 20px;
-}
 
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border-radius: 5px;
-  border: none;
-  background-color: #2a2a2a;
-  color: #fff;
-  font-size: 16px;
-}
+@media (max-width: 480px) {
+  .logo {
+    font-size: 22px;
+  }
 
-.contact-form button {
-  background-color: #e50914;
-  color: white;
-  padding: 12px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: not-allowed; /* Disabled for now */
-  opacity: 0.7;
-}
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-/* 🌐 Social Icons */
-.social-icon {
-  margin: 0 10px;
-  color: #e50914;
-  font-size: 20px;
-  transition: transform 0.2s;
-}
+  .nav-links {
+    gap: 10px;
+  }
 
-.social-icon:hover {
-  transform: scale(1.2);
-  color: white;
+  .carousel-container {
+    max-height: 220px;
+  }
+
+  .carousel-image {
+    height: 220px;
+  }
+
+  h2 {
+    font-size: 28px !important; /* Ensure headings scale down */
+  }
+
+  .testimonial-card, .course-card {
+    width: 95%;
+  }
+
+  .social-icon {
+    font-size: 22px;
+    margin: 0 8px;
+  }
 }
