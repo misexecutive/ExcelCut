@@ -1,23 +1,19 @@
-// 🚀 Auto Image Carousel Slider
-let currentSlide = 0;
-const images = document.querySelectorAll(".carousel-image");
+const carousel = document.querySelector('.carousel');
+const carouselImages = document.querySelectorAll('.carousel-image');
+let currentIndex = 0;
+const totalImages = carouselImages.length;
 
-function showSlide(index) {
-  images.forEach((img, i) => {
-    img.classList.remove("active");
-    if (i === index) img.classList.add("active");
-  });
+function showNextImage() {
+  currentIndex = (currentIndex + 1) % totalImages;
+  updateCarousel();
 }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % images.length;
-  showSlide(currentSlide);
+function updateCarousel() {
+  const offset = -currentIndex * 100; // Move by 100% of the container width
+  carousel.style.transform = `translateX(${offset}%)`;
 }
 
-// Start slider
-setInterval(nextSlide, 4000); // Change image every 4 seconds
+// Example: Auto-slide every 3 seconds
+setInterval(showNextImage, 3000);
 
-// Show first image on load
-document.addEventListener("DOMContentLoaded", () => {
-  showSlide(currentSlide);
-});
+// You'd also need functions for previous/next buttons if desired.
